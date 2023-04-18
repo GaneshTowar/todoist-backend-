@@ -92,8 +92,9 @@ app.post("/addlist",verifyToken, async(req, res) =>{
         const addingListDataRecords = new listdata(req.body)
         //console.log(req.body)
         const insertlist = await addingListDataRecords.save()
-        console.log("adding data")
+        console.log(insertlist + " adding")
         //console.log(insertlist)
+        res.status(201).send(insertlist)
     } catch (e) {
         res.status(400).send(e);
     }
